@@ -62,31 +62,32 @@ class BRTableViewController: UITableViewController, NSXMLParserDelegate {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return blogPosts.count
     }
 
-
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
         
         let blogPost: BlogPost = blogPosts[indexPath.row]
-        cell.textLabel.text = blogPost.postTitle
-
+        cell.textLabel?.text = blogPost.postTitle
+        
         return cell
     }
-    
-    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-        return 50.0
+
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+         return 50.0
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!)  {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)  {
         if segue.identifier == "viewpost" {
-            let blogPost: BlogPost = blogPosts[tableView.indexPathForSelectedRow().row]
+            let selectedRow = tableView.indexPathForSelectedRow()?.row
+            let blogPost: BlogPost = blogPosts[selectedRow!]
             let viewController = segue.destinationViewController as PostViewController
             viewController.postLink = blogPost.postLink
         }
