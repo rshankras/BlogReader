@@ -18,8 +18,8 @@ class BRTableViewController: UITableViewController, NSXMLParserDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url:NSURL = NSURL(string: "http://rshankar.com/feed")
-        parser = NSXMLParser(contentsOfURL: url)
+        let url:NSURL = NSURL(string: "http://rshankar.com/feed")!
+        parser = NSXMLParser(contentsOfURL: url)!
         parser.delegate = self
         parser.parse()
     }

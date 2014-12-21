@@ -17,7 +17,7 @@ class PostViewController: UIViewController, UIWebViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url: NSURL = NSURL(string: postLink)
+        let url: NSURL = NSURL(string: postLink)!
         let request: NSURLRequest = NSURLRequest(URL: url)
         webView.loadRequest(request)
         webView.delegate = self
