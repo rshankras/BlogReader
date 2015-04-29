@@ -23,12 +23,12 @@ class PostViewController: UIViewController, UIWebViewDelegate {
         webView.delegate = self
     }
     
-    func webViewDidStartLoad(webView: UIWebView!)  {
+    func webViewDidStartLoad(webView: UIWebView)  {
         activityIndicator.hidden = false
         activityIndicator.startAnimating()
     }
     
-    func webViewDidFinishLoad(webView: UIWebView!)  {
+    func webViewDidFinishLoad(webView: UIWebView)  {
         activityIndicator.hidden = true
         activityIndicator.stopAnimating()
     }
