@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Lxh-dm-3au">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Lxh-dm-3au">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--Blog Reader-->
@@ -13,9 +14,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="TMF-aW-OzL">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="TMF-aW-OzL">
+                                <rect key="frame" x="0.0" y="86" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TMF-aW-OzL" id="g4q-8K-yl8">
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -64,6 +67,7 @@
                             <constraint firstItem="ke9-yA-8vd" firstAttribute="centerY" secondItem="9yK-yS-ajK" secondAttribute="centerY" id="hUF-cd-58s"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="YnR-Sh-xGr"/>
                     <connections>
                         <outlet property="activityIndicator" destination="ke9-yA-8vd" id="kCh-Yw-whE"/>
                         <outlet property="webView" destination="9yK-yS-ajK" id="PeK-QJ-Qdd"/>
@@ -89,7 +93,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7fW-Fe-uzL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="287" y="376"/>
+            <point key="canvasLocation" x="287" y="375.99999999999994"/>
         </scene>
     </scenes>
 </document>

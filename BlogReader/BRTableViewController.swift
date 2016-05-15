@@ -26,7 +26,7 @@ class BRTableViewController: UITableViewController, NSXMLParserDelegate {
     
     // MARK: - NSXMLParserDelegate methods
     
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
+    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         eName = elementName
         if elementName == "item" {
             postTitle = String()
@@ -34,8 +34,8 @@ class BRTableViewController: UITableViewController, NSXMLParserDelegate {
         }
     }
     
-    func parser(parser: NSXMLParser, foundCharacters string: String?) {
-        let data = string!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    func parser(parser: NSXMLParser, foundCharacters string: String) {
+        let data = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         if (!data.isEmpty) {
             if eName == "title" {
                 postTitle += data
@@ -72,7 +72,7 @@ class BRTableViewController: UITableViewController, NSXMLParserDelegate {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) 
         
         let blogPost: BlogPost = blogPosts[indexPath.row]
         cell.textLabel?.text = blogPost.postTitle
@@ -86,7 +86,7 @@ class BRTableViewController: UITableViewController, NSXMLParserDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)  {
         if segue.identifier == "viewpost" {
-            let selectedRow = tableView.indexPathForSelectedRow()?.row
+            let selectedRow = tableView.indexPathForSelectedRow?.row
             let blogPost: BlogPost = blogPosts[selectedRow!]
             let viewController = segue.destinationViewController as! PostViewController
             viewController.postLink = blogPost.postLink
